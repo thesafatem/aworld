@@ -1,23 +1,14 @@
-import fs from 'fs';
+import http from 'http';
 
-import {
-  mapPiece1,
-  mapPiece2,
-  mapPiece3,
-  mapPiece4,
-  mapPiece5,
-  mapPiece6
-} from './mapPieces.js';
-import { Map } from './map.js';
+const hostname = '127.0.0.1';
+const port = 3000;
 
-const map = new Map([
-  [mapPiece1, mapPiece2],
-  [mapPiece3, mapPiece4],
-  [mapPiece5, mapPiece6]
-]);
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, world!');
+});
 
-fs.writeFile('aliyusha.json', JSON.stringify(map, ['grid', 'biome', 'name'], 2), err => {
-  if (err) {
-    console.log(err);
-  }
+server.listen(port, hostname, () => {
+  console.log(`Server is running at http://${hostname}:${port}/`);
 });

@@ -1,5 +1,5 @@
 import { MapPiece } from './mapPiece.js';
-import * as tiles from './tiles.js';
+import * as tiles from '../Tile/tiles.js';
 
 export const mapPiece1 = new MapPiece([
   [tiles.waterFree, tiles.waterFree, tiles.waterFree, tiles.waterFree, tiles.forestFree, tiles.forestFree],

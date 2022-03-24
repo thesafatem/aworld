@@ -1,6 +1,6 @@
 import { Tile } from './tile.js';
-import { biome } from './biome.js';
-import { animal } from './animal.js';
+import { biome } from '../Biome/biome.js';
+import { animal } from '../Animal/animal.js';
 
 export const forestFree = new Tile(biome.forest, null, null);
 export const forestBear = new Tile(biome.forest, animal.bear, null);
