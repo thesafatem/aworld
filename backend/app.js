@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/auth', require('./routers/auth.js'));
+app.use('/comments', require('./routers/comment.js'));
 app.use('/posts', require('./routers/post.js'));
 
 app.listen(PORT, () => {

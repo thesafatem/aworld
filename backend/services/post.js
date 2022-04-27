@@ -14,6 +14,15 @@ exports.getPosts = async () => {
   try {
     let posts = await postRepository.getPosts();
     posts = posts.map(post => {
+      const comments = post.comments.map(comment => {
+        return {
+          id: comment.f1,
+          name: comment.f2,
+          body: comment.f3,
+          created_at: comment.f4
+        };
+      });
+
       return {
         id: post.post_id,
         title: post.title,
@@ -23,7 +32,8 @@ exports.getPosts = async () => {
           id: post.user_id,
           name: post.name,
           username: post.username
-        }
+        },
+        comments: comments
       };
     });
     return posts;
@@ -53,7 +63,7 @@ exports.getPost = async (id) => {
   }
 }
 
-exports.deletePost = async (userId, postId) => {
+exports.deletePost = async (id) => {
   try {
     await postRepository.deletePost(id);
   } catch(err) {
