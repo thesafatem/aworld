@@ -21,6 +21,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
+    console.log(req.body, req.headers, req.params, req.query)
     const { email, password } = req.body;
     const user = await authService.login({
       email: email,
