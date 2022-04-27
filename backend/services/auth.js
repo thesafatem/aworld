@@ -9,7 +9,7 @@ exports.registerUser = async (userData) => {
     const encryptedPassword = await bcrypt.hash(password, 10);
     userData.password = encryptedPassword;
     const [ user ] = await authRepository.registerUser(userData);
-    const token = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn: '30m'});
+    const token = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn: '2h'});
     user.token = token;
     return user;
   } catch(err) {
@@ -28,7 +28,7 @@ exports.login = async (userData) => {
       throw new Error('invalid credentials');
     }
 
-    const token = jwt.sign({user}, process.env.TOKEN_KEY, { expiresIn: '30m' });
+    const token = jwt.sign({user}, process.env.TOKEN_KEY, { expiresIn: '2h' });
     user.token = token;
     return user;
   } catch(err) {

@@ -1,15 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 exports.verifyToken = (req, res, next) => {
-  req.user = {
-    user: {
-      id: 1,
-      name: 'Aliyusha',
-      username: 'bulgarian_accent',
-      email: 'aliya@gmail.com'
-    }
-  }
-  return next();
   const token = req.header('Authorization');
   if (!token) {
     return res.status(403).send({
