@@ -13,3 +13,5 @@ services:
       - PGPASSWORD=password
       - PGDATABASE=aworld
       - PGHOST=host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
