@@ -9,4 +9,6 @@ RUN npm install
 
 EXPOSE 3000
 
+ENV PGUSER=admin PGPASSWORD=password PGDATABASE=aworld PGHOST=host.docker.internal
+
 CMD ["node", "app.js"]
