@@ -7,7 +7,7 @@ COPY . /usr/src/app/
 
 RUN npm install 
 
-EXPOSE 3000
+EXPOSE 5000
 
 ENV PGUSER=admin PGPASSWORD=password PGDATABASE=aworld PGHOST=host.docker.internal
 
